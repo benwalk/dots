@@ -24,6 +24,14 @@ else
     error "Failed to install XCode command line tools."
 fi
 
+info "Installing Homebrew..."
+if command -v brew &>/dev/null; then
+    success "Homebrew already installed."
+else
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+success "Finished installing Homebrew."
+
 # Package control must be executed first in order for the rest to work
 ./packages/setup.sh
 
