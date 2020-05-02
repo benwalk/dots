@@ -1,0 +1,73 @@
+{
+	"*": {
+		"atom-beautify": {
+			"general": {
+				"_analyticsUserId": "2daccf90-a351-430a-a04c-345cbf8865f7"
+			},
+			"ruby": {}
+		},
+		"atom-ide-ui": {
+			"atom-ide-code-format": {
+				"formatOnSave": true
+			},
+			"use": {}
+		},
+		"autocomplete-plus": {
+			"backspaceTriggersAutocomplete": true
+		},
+		"autocomplete-python": {
+			"useKite": false
+		},
+		"core": {
+			"debugLSP": true,
+			"disabledPackages": [
+				"ide-ruby"
+			],
+			"packagesWithKeymapsDisabled": [],
+			"telemetryConsent": "limited"
+		},
+		"editor": {
+			"fontSize": 12,
+			"showIndentGuide": true
+		},
+		"exception-reporting": {
+			"userId": "94495b04-99e5-4bbf-9de6-3acd45ffcb05"
+		},
+		"fuzzy-finder": {
+			"scoringSystem": "fast",
+			"useRipGrep": true
+		},
+		"linter-ui-default": {
+			"showPanel": true
+		},
+		"one-dark-ui": {
+			"stickyHeaders": true,
+			"tabCloseButton": "Left"
+		},
+		"one-light-ui": {
+			"stickyHeaders": true
+		},
+		"sync-settings": {
+			"useOtherLocation": true
+		},
+		"sync-settings-folder-location": {
+			"folderPath": "/Users/benwalker/.config"
+		},
+		"tabs": {
+			"addNewTabsAtEnd": true,
+			"enableVcsColoring": true
+		},
+		"tree-view": {
+			"alwaysOpenExisting": true,
+			"autoReveal": true
+		},
+		"welcome": {
+			"showOnStartup": false
+		}
+	},
+	".git-commit.text": {
+		"editor": {
+			"showInvisibles": false
+		}
+	}
+}
