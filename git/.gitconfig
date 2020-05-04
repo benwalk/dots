@@ -1,0 +1,32 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = benwalker
+	email = benwalker@simple.com
+[push]
+	default = tracking
+[alias]
+	alias = config --get-regexp '^alias\\.'
+	br = branch -vv
+	branch-clean = !git refresh && git branch --merged master | grep -v "master" | xargs git branch -d
+	ci = commit
+	co = checkout
+	current = symbolic-ref --short HEAD
+  logp = log --graph --pretty='%C(auto)%h %d %s %C(bold blue)%cr%Creset' --abbrev-commit -n 10
+	nb = !git refresh && git co -b
+  open-pr = "!f() { \
+		base=`(git remote get-url origin | awk '{print substr($0,5,length()-8)}' | sed 's/:/\\//')`; \
+		branch=`(git symbolic-ref --short HEAD)`;  \
+		open https://$base/compare/$branch?expand=1;  }; f"
+	pup = !git push --set-upstream origin $(git current)
+	refresh = !git checkout master && git update --prune
+	s = status
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	undo-commit = reset --soft HEAD^
+	unstage = reset HEAD
+  update = pull --rebase
+[core]
+	excludesfile = /Users/benwalker/.gitignore_global
