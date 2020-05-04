@@ -3,6 +3,8 @@
 # ------------------------------------------------------------------------------
 function fish_prompt
 
+  set fish_prompt_symbol "❯"
+
   function string_width \
       --description 'returns raw string length, i.e. ignore ANSI-color' \
       --argument-names str
