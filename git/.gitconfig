@@ -17,7 +17,10 @@
 	current = symbolic-ref --short HEAD
   logp = log --graph --pretty='%C(auto)%h %d %s %C(bold blue)%cr%Creset' --abbrev-commit -n 10
 	nb = !git refresh && git co -b
-  open-pr = "!f() { \
+	open-repo = "!f() { \
+		base=`(git remote get-url origin | awk '{print substr($0,5,length()-8)}' | sed 's/:/\\//')`; \
+		open https://$base;  }; f"
+	open-pr = "!f() { \
 		base=`(git remote get-url origin | awk '{print substr($0,5,length()-8)}' | sed 's/:/\\//')`; \
 		branch=`(git symbolic-ref --short HEAD)`;  \
 		open https://$base/compare/$branch?expand=1;  }; f"
