@@ -23,8 +23,20 @@ set -gx PATH $PATH \
 # ------------------------------------------------------------------------------
 # Other Variables
 # ------------------------------------------------------------------------------
+# Maven Opts
+# - `-Xmx4g` sets max heap size to 4G
+# - `-Xms512m` sets initial and min heap size to 512M
+# - `-Xss32m` sets stack size to 32M
+# - `-XX:+UseG1GC` enables the garbage-first (G1) collector
+# - `-XX:+TieredCompilation` enables tiered compilation
+# - `-XX:+TieredStopAtLevel=1`
+set -xg MAVEN_OPTS "-Xmx4g -Xms512m  -Xss32m -XX:+UseG1GC -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+
 # Use all kube config files found
-set -xg KUBECONFIG (string join ':' ~/.kube/config/*)
+if test -e ~/.kube/config
+  echo "Sourcing Kube configs."
+  set -xg KUBECONFIG (string join ':' ~/.kube/config/*)
+end
 
 # AWS Defaults
 set -xg AWS_PROFILE ops-dev
@@ -41,3 +53,5 @@ set -xg AWS_VAULT_KEYCHAIN_NAME login
 
 # ------------------------------------------------------------------------------
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish ; or true
+set -g fish_user_paths "/usr/local/opt/terraform@0.11/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/ncurses/bin" $fish_user_paths

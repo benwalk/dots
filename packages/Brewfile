@@ -24,6 +24,9 @@ brew 'mas'
 #brew 'maven'
 #brew 'openssl'
 brew 'postgresql'
+brew 'terraform@0.11'
+brew 'terraform'
 brew 'wget'
+
 
 mas 'Keynote', id: 409183694
