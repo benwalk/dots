@@ -4,8 +4,8 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	name = benwalker
-	email = benwalker@simple.com
+	name = benwalk
+	email = ben.walker.dev@gmail.com
 [push]
 	default = tracking
 [alias]

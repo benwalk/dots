@@ -12,17 +12,26 @@ set -gx PATH $PATH \
 ~/.rbenv \
 ~/code/backend/hermit/local \
 ~/code/user-factory/bin \
+~/go/bin \
 /Applications/Postgres.app/Contents/Versions/latest/bin \
 /Library/Frameworks/Python.framework/Versions/3.7/bin \
 /usr/local/apache-maven-3.5.3/bin \
 /usr/local/flyway-5.0.7 \
 /usr/local/gradle-4.9/bin \
 /usr/local/scala-2.11.8/bin \
-/usr/local/opt/openssl@1.1/bin
+/usr/local/opt/openssl@1.1/bin \
+/usr/local/go/bin
 
 # ------------------------------------------------------------------------------
 # Other Variables
 # ------------------------------------------------------------------------------
+# Go
+set -gx GOPATH ~/go
+
+# Python (pyenv)
+set -gx PYENV_ROOT ~/.pyenv
+
+
 # Maven Opts
 # - `-Xmx4g` sets max heap size to 4G
 # - `-Xms512m` sets initial and min heap size to 512M
@@ -39,11 +48,9 @@ if test -e ~/.kube/config
 end
 
 # AWS Defaults
-set -xg AWS_PROFILE ops-dev
-set -xg AWS_DEFAULT_PROFILE ops-dev
-set -xg AWS_REGION us-west-2
-set -xg AWS_DEFAULT_REGION us-west-2
-set -xg AWS_VAULT_KEYCHAIN_NAME login
+#set -xg AWS_REGION us-west-2
+#set -xg AWS_DEFAULT_REGION us-west-2
+#set -xg AWS_VAULT_KEYCHAIN_NAME login
 
 
 # ------------------------------------------------------------------------------
@@ -53,5 +60,3 @@ set -xg AWS_VAULT_KEYCHAIN_NAME login
 
 # ------------------------------------------------------------------------------
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish ; or true
-set -g fish_user_paths "/usr/local/opt/terraform@0.11/bin" $fish_user_paths
-set -g fish_user_paths "/usr/local/opt/ncurses/bin" $fish_user_paths
