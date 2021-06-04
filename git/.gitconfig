@@ -1,5 +1,6 @@
 [init]
 	templateDir = ~/.config/git/template/
+	defaultBranch = main
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -13,21 +14,21 @@
 [alias]
 	alias = config --get-regexp '^alias\\.'
 	br = branch -vv
-	branch-clean = !git refresh && git branch --merged master | grep -v "master" | xargs git branch -d
+	# branch-clean = !git refresh && git branch --merged main | grep -v "main" | xargs git branch -d
 	ci = commit
 	co = checkout
 	current = symbolic-ref --short HEAD
   logp = log --graph --pretty='%C(auto)%h %d %s %C(bold blue)%cr%Creset' --abbrev-commit -n 10
-	nb = !git refresh && git co -b
+	nb = ! "nb() { git refresh $1 && git co -b $2; }; nb"
 	open-repo = "!f() { \
 		base=`(git remote get-url origin | awk '{print substr($0,5,length()-8)}' | sed 's/:/\\//')`; \
 		open https://$base;  }; f"
-	open-pr = "!f() { \
+	open-pr = ! "opr() { \
 		base=`(git remote get-url origin | awk '{print substr($0,5,length()-8)}' | sed 's/:/\\//')`; \
 		branch=`(git symbolic-ref --short HEAD)`;  \
-		open https://$base/compare/$branch?expand=1;  }; f"
+		open https://$base/compare/$branch?expand=1;  }; opr"
 	pup = !git push --set-upstream origin $(git current)
-	refresh = !git checkout master && git update --prune
+	refresh = ! "refresh() { git co $1 && git update --prune; }; refresh"
 	s = status
 	save = !git add -A && git commit -m 'SAVEPOINT'
 	undo-commit = reset --soft HEAD^
