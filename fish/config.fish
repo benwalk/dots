@@ -51,7 +51,9 @@ end
 #set -xg AWS_REGION us-west-2
 #set -xg AWS_DEFAULT_REGION us-west-2
 #set -xg AWS_VAULT_KEYCHAIN_NAME login
-
+# yes this is bonkers
+set -xg AWS_ACCESS_KEY_ID AKIAQLLHWD6MEZEBZMQE
+set -xg AWS_SECRET_ACCESS_KEY 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
 
 # ------------------------------------------------------------------------------
 # Alias
@@ -60,10 +62,9 @@ end
 
 # ------------------------------------------------------------------------------
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish ; or true
-<<<<<<< Updated upstream
-=======
 set -g fish_user_paths "/usr/local/opt/terraform@0.11/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/ncurses/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/avr-gcc@8/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/arm-gcc-bin@8/bin" $fish_user_paths
->>>>>>> Stashed changes
+
+set -x NVM_DIR ~/.nvm
