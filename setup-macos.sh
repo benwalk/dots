@@ -4,7 +4,7 @@
 #-------------------------------------------------------------------------------
 
 # set dock to left
-defaults write com.apple.dock "orientation" -string "left"
+defaults write com.apple.dock "orientation" -string "right"
 # set dock icon size to smaller
 defaults write com.apple.dock "tilesize" -int "36"
 # autohide the dock
@@ -90,7 +90,7 @@ defaults write NSGlobalDomain "NSAutomaticDashSubstitutionEnabled" -bool false
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # disable time machine prompting to use disks as backup
-defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool "false"
+defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool "true"
 
 # disable "application downloaded from internet" warning
 defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
@@ -123,33 +123,27 @@ defaults write NSGlobalDomain KeyRepeat -int 2 && defaults write NSGlobalDomain 
 
 # Enable lid wakeup
 sudo pmset -a lidwake 1
-
 # Restart automatically on power loss
 sudo pmset -a autorestart 1
-
-# Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
-
 # Sleep the display after 15 minutes
 sudo pmset -a displaysleep 15
-
 # Disable machine sleep while charging
 sudo pmset -c sleep 0
-
 # Set machine sleep to 5 minutes on battery
 sudo pmset -b sleep 5
-
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
-
-# Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null
-
 # Hibernation mode
 # 0: Disable hibernation (speeds up entering sleep mode)
 # 3: Copy RAM to disk so the system state can still be restored in case of a
 #    power failure.
-sudo pmset -a hibernatemode 0
+sudo pmset -a hibernatemode 3
+
+# Never go into computer sleep mode
+sudo systemsetup -setcomputersleep Off > /dev/null
+# Restart automatically if the computer freezes
+sudo systemsetup -setrestartfreeze on
+
 
 # Remove the sleep image file to save disk space
 sudo rm /private/var/vm/sleepimage

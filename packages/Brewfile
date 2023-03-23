@@ -1,32 +1,59 @@
-tap 'homebrew/cask-versions'
+# --- Brewfile ---
+
+# --- 'brew tap' ---
+# adds repos to a list that `brew` will track and install from
+tap 'homebrew/core'
 tap 'homebrew/bundle'
+tap 'homebrew/cask'
 
-cask 'brave-browser'
-cask 'discord'
-#cask 'docker'
-#cask 'google-backup-and-sync'
-#cask 'google-chrome'
-#cask 'insomnia'
-#cask 'intellij-idea'
-#cask 'iterm2'
-#cask 'java'
-#cask 'paintbrush'
-#cask 'postman'
-#cask 'slack'
-#cask 'spotify'
-cask 'steam'
-cask 'zoomus'
 
+# --- 'brew install' ---
+# uses formulae - a config file that indicates how to install something typically open-source and compiled software
 brew 'brew-cask-completion'
-brew 'coreutils'
 brew 'fish'
 brew 'mas'
+brew 'gh'
 #brew 'maven'
 #brew 'openssl'
 brew 'postgresql'
-brew 'terraform@0.11'
 brew 'terraform'
 brew 'wget'
+brew 'mongodb'
 
 
+# --- ' brew install --cask' ---
+# also uses formalae similarly to install, but typically for GUI or closed-source software
+
+# set arguments for all 'brew install --cask' commands
+cask_args appdir: "~/Applications", require_sha: true
+
+cask 'atom'
+cask 'aws-vault'
+# cask 'brave-browser'
+cask 'discord'
+cask 'docker'
+# cask 'google-backup-and-sync'
+cask 'google-chrome'
+# cask 'insomnia'
+# cask 'intellij-idea'
+cask 'iterm2'
+# cask 'java'
+cask 'mongodb-compass'
+cask 'notion'
+# cask 'paintbrush'
+cask 'postman'
+cask 'prusaslicer'
+cask 'slack'
+cask 'spotify'
+# cask 'steam'
+cask 'zoom'
+
+
+
+mas 'Amphetamine', id: 937984704
+mas 'Bitwarden', id: 1352778147
 mas 'Keynote', id: 409183694
+mas 'Magnet', id: 441258766
+mas 'Okta Verify', id: 490179405
+mas 'Pages', id: 409201541
+mas 'Yubico Authenticator', id: 1497506650

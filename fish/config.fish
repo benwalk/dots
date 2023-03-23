@@ -10,26 +10,24 @@ set -gx PATH $PATH \
 ~/.local/bin \
 ~/.local/sbt/bin \
 ~/.rbenv \
-~/code/backend/hermit/local \
-~/code/user-factory/bin \
-~/go/bin \
 /Applications/Postgres.app/Contents/Versions/latest/bin \
 /Library/Frameworks/Python.framework/Versions/3.7/bin \
-/usr/local/apache-maven-3.5.3/bin \
-/usr/local/flyway-5.0.7 \
-/usr/local/gradle-4.9/bin \
-/usr/local/scala-2.11.8/bin \
-/usr/local/opt/openssl@1.1/bin \
-/usr/local/go/bin
+
+
+# ------------------------------------------------------------------------------
+# Fish
+# ------------------------------------------------------------------------------
+set -gx EDITOR vim
 
 # ------------------------------------------------------------------------------
 # Other Variables
 # ------------------------------------------------------------------------------
+
 # Go
-set -gx GOPATH ~/go
+#set -gx GOPATH ~/go
 
 # Python (pyenv)
-set -gx PYENV_ROOT ~/.pyenv
+#set -gx PYENV_ROOT ~/.pyenv
 
 
 # Maven Opts
@@ -39,31 +37,33 @@ set -gx PYENV_ROOT ~/.pyenv
 # - `-XX:+UseG1GC` enables the garbage-first (G1) collector
 # - `-XX:+TieredCompilation` enables tiered compilation
 # - `-XX:+TieredStopAtLevel=1`
-set -xg MAVEN_OPTS "-Xmx4g -Xms512m  -Xss32m -XX:+UseG1GC -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+#set -xg MAVEN_OPTS "-Xmx4g -Xms512m  -Xss32m -XX:+UseG1GC -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 
 # Use all kube config files found
-if test -e ~/.kube/config
-  echo "Sourcing Kube configs."
-  set -xg KUBECONFIG (string join ':' ~/.kube/config/*)
-end
+#if test -e ~/.kube/config
+#  echo "Sourcing Kube configs."
+#  set -xg KUBECONFIG (string join ':' ~/.kube/config/*)
+#end
 
 # AWS Defaults
 #set -xg AWS_REGION us-west-2
 #set -xg AWS_DEFAULT_REGION us-west-2
 #set -xg AWS_VAULT_KEYCHAIN_NAME login
 
+# Node, NVM
+set -x NVM_DIR ~/.nvm
 
 # ------------------------------------------------------------------------------
-# Alias
+# Aliases
 # ------------------------------------------------------------------------------
 # alias redshift='envcrypt ~/.secrets/redshift-prod.gpg psql'
 
+
+# ------------------------------------------------------------------------------
+# EOF
 # ------------------------------------------------------------------------------
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish ; or true
-<<<<<<< Updated upstream
-=======
 set -g fish_user_paths "/usr/local/opt/terraform@0.11/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/ncurses/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/avr-gcc@8/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/arm-gcc-bin@8/bin" $fish_user_paths
->>>>>>> Stashed changes

@@ -36,3 +36,5 @@
   update = pull --rebase
 [core]
 	excludesfile = /Users/benwalker/.gitignore_global
+[pull]
+	ff = only

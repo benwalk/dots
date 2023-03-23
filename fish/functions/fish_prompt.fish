@@ -66,7 +66,7 @@ function fish_prompt
       #        set symbol_color "$symbol_color_error$symbol$symbol_color_success"
       #    end
       #end
-
+      iterm2_prompt_mark
       echo "$symbol_color$symbol"
   end
 
