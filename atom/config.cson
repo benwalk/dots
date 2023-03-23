@@ -1,0 +1,37 @@
+"*":
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
+  "atom-ide-ui":
+    use:
+      "atom-ide-diagnostics": "never"
+      "atom-ide-diagnostics-ui": "never"
+  core:
+    disabledPackages: [
+      "fast-eslint"
+      "linter"
+      "linter-ui-default"
+      "editorconfig"
+    ]
+    packagesWithKeymapsDisabled: []
+    telemetryConsent: "limited"
+    themes: [
+      "one-light-ui"
+      "one-light-syntax"
+    ]
+  editor:
+    fontSize: 16
+  "exception-reporting":
+    userId: "43f1b61d-d74e-49c0-8c91-a17b29e360ea"
+  "flow-ide":
+    executablePath: "node_modules/.bin/flow"
+    showUncovered: true
+  "ide-flowtype":
+    autoDownloadFlowBinaries: false
+    customFlowPath: {}
+    tryFlowBin: true
+  "linter-ui-default":
+    panelHeight: 306
+  "prettier-atom":
+    formatOnSaveOptions: {}
+  welcome:
+    showOnStartup: false
